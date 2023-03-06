@@ -11,6 +11,14 @@
     border-b
     border-green-600
     ">
+      <span 
+      class="
+      p-2
+      text-gray-500
+      font-semibold
+      "
+      v-if="config.projects.filter(p => p.active).length === 0"
+      >No projects available</span>
       <NuxtLink 
       v-for="project in config.projects.filter(p => p.active)" :to="`/projects/${project.name}`"
       class="
@@ -24,14 +32,7 @@
       hover:border-green-100
       "
       >{{project.name}}</NuxtLink>
-      <span 
-      class="
-      p-2
-      text-gray-500
-      font-semibold
-      "
-      v-if="config.projects.filter(p => p.active).length === 0"
-      >No projects available</span>
+      
     </div>
     <NuxtPage></NuxtPage>
   </div>
